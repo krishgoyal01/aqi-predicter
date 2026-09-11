@@ -5,25 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>aqi dashboard</title>
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <h1>Welcome to the AQI Dashboard</h1>
-    <label for="city-select">Choose a city:</label>
-    <select id="city-select">
-        {% for city in cities %}
-            <option value="{{ city }}">{{ city }}</option>
-        {% endfor %}
-    </select>
+     <header>
+        <h1>AQI Forecasting Dashboard</h1>
+        <p class="subtitle">Explore air quality trends across Indian cities, powered by XGBoost and K-Means clustering</p>
+    </header>
+    <main>
+    <section class ="controls">
+        <div class="control-group">
+            <label for="city-select">Choose a city:</label>
+            <select id="city-select">
+                {% for city in cities %}
+                    <option value="{{ city }}">{{ city }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="control-group">
+            <label for="pollutant-select">Choose a pollutant:</label>
+            <select id="pollutant-select">
+                {% for pollutant in pollutants %}
+                    <option value="{{ pollutant }}">{{ pollutant }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </section>
+    <section class="chart-section">
+    <div id="chart-container"></div>
+</section>
+    <section class="prediction-section">
+        <div class="card">
+            <h2 >Latest available prediction</h2>
+            <button id="predict-latest-button">Predict for latest date</button>
+            <div id="latest-result"></div>
+        </div>
+        <div class ="card">
+            <h2>Historical prediction</h2>
+            <div class="control-group">
+                <label for="date-select">Choose a date:</label>
+                <select id="date-select"></select>
+            </div>
+            <button id="predict-historical-button">Predict for this date</button>
+            <div id="historical-result"></div>
+        </div>
+    </section>
 
-<label for="pollutant-select">Choose a pollutant:</label>
-    <select id="pollutant-select">
-        {% for pollutant in pollutants %}
-            <option value="{{ pollutant }}">{{ pollutant }}</option>
-        {% endfor %}
-    </select>
-
-    <div id="chart-container" style="width:800px; height:500px;"></div>
-
+</main>
     <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
 </body>
 </html>
