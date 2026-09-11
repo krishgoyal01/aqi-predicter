@@ -4,7 +4,7 @@ An end-to-end machine learning pipeline that forecasts Air Quality Index (AQI)
 across 20 Indian cities using historical CPCB sensor data (2015-2020), 
 deployed as an interactive Flask dashboard.
 
-**Live Demo:** [https://aqi-predictor.onrender.com](https://aqi-predictor.onrender.com)
+**Live Demo:** [https://aqi-predicter.onrender.com](https://aqi-predicter.onrender.com)
 *(Hosted on Render's free tier — first load may take 30-50s if the app has been idle)*
 
 ## Features
