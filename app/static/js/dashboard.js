@@ -25,6 +25,7 @@ cityselect.addEventListener('change',populateDates);
 function updateChart() {
     const city=cityselect.value;
     const pollutant=pollutantselect.value;
+     if (!city || !pollutant) return; 
     fetch(`/get_data?city=${city}&pollutant=${pollutant}`)
     .then(response=>response.json())
     .then(data=>{

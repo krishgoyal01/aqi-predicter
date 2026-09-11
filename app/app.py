@@ -44,6 +44,8 @@ def home():
 def get_data():
     city = request.args.get('city')
     pollutant = request.args.get('pollutant')
+    if not city or not pollutant:
+        return jsonify({'error': 'City and pollutant are required'}), 400
     x='City_'+city
     filtered_data=city_data[(city_data[x] == 1) ].sort_values('Date')
     response = {
@@ -56,6 +58,8 @@ def get_data():
 @app.route('/get_dates')
 def get_dates():
     city = request.args.get('city')
+    if not city :
+        return jsonify({'error': 'City  required'}), 400
     x='City_'+city
     city_rows=city_data[(city_data[x] == 1) ].sort_values('Date')
     dates = city_rows['Date'].dt.strftime('%Y-%m-%d').tolist()
@@ -65,6 +69,8 @@ def get_dates():
 @app.route('/predict_historical')
 def predict_historical():
     city = request.args.get('city')
+    if not city :
+        return jsonify({'error': 'City required'}), 400
     x='City_'+city
     city_rows= city_data[(city_data[x] == 1)].sort_values('Date')
     date = request.args.get('date')
@@ -95,6 +101,8 @@ def predict_historical():
 @app.route('/predict_latest')
 def predict_latest():
     city = request.args.get('city')
+    if not city :
+        return jsonify({'error': 'City required'}), 400
     x='City_'+city
     city_rows= city_data[(city_data[x] == 1)].sort_values('Date')
     last_row = city_rows.iloc[-1]
