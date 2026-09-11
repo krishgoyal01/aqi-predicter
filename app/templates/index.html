@@ -17,6 +17,7 @@
         <div class="control-group">
             <label for="city-select">Choose a city:</label>
             <select id="city-select">
+                <option value="" disabled selected>Select a city</option>
                 {% for city in cities %}
                     <option value="{{ city }}">{{ city }}</option>
                 {% endfor %}
@@ -25,6 +26,7 @@
         <div class="control-group">
             <label for="pollutant-select">Choose a pollutant:</label>
             <select id="pollutant-select">
+                <option value="" disabled selected>Select a pollutant</option>
                 {% for pollutant in pollutants %}
                     <option value="{{ pollutant }}">{{ pollutant }}</option>
                 {% endfor %}

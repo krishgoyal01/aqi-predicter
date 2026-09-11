@@ -9,8 +9,9 @@ data/processed/*
 
 # ===== Models =====
 # Trained model files can get large - optional to ignore, your call
-models/*.pkl
-
+#models/*.pkl
+models/model_rf.pkl
+models/model_lr.pkl
 # ===== Jupyter =====
 .ipynb_checkpoints/
 */.ipynb_checkpoints/*

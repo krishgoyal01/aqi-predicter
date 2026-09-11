@@ -19,8 +19,8 @@ function populateDates(){
     .catch(error=>console.error('Error fetching dates:', error));
 }
 cityselect.addEventListener('change',populateDates);
-populateDates(); // Initial population of dates when the page loads
-
+// populateDates(); // Initial population of dates when the page loads
+ 
 
 function updateChart() {
     const city=cityselect.value;
